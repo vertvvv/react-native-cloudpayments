@@ -1,5 +1,5 @@
 #import "RNCloudPayments.h"
-#import <SDK-iOS/Card.h>
+#import <SDK-iOS/sdk/sdk/Card/Card.h>
 
 @implementation RNCloudPayments
 
@@ -26,7 +26,7 @@ RCT_EXPORT_METHOD(getType: (NSString *)cardNumber
 {
     CardType cardType = [Card cardTypeFromCardNumber: cardNumber];
     NSString *cardTypeString = [Card cardTypeToString: cardType];
-    
+
     resolve(cardTypeString);
 }
 
@@ -38,9 +38,9 @@ RCT_EXPORT_METHOD(createCryptogram: (NSString *)cardNumber
                   reject: (RCTPromiseRejectBlock)reject)
 {
     Card *_card = [[Card alloc] init];
-    
+
     NSString *cryptogram = [_card makeCardCryptogramPacket: cardNumber andExpDate:cardExp andCVV:cardCvv andMerchantPublicID:publicId];
-    
+
     resolve(cryptogram);
 }
 @end
