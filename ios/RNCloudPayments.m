@@ -1,5 +1,5 @@
 #import "RNCloudPayments.h"
-#import <SDK-iOS/sdk/sdk/Card/Card.h>
+#import <SDK-iOS/Card.h>
 
 @implementation RNCloudPayments
 
